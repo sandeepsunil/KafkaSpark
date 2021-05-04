@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  spark:
+    build: ./image
+    restart: unless-stopped
+    volumes:
+      - ./notebooks:/home/guest/notebooks
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
